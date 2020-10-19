@@ -24,14 +24,19 @@ namespace TrackerUI
         {
             InitializeComponent();
 
-            if(this.scoreButton.IsMouseOver && System.Windows.Input.Mouse.LeftButton == MouseButtonState.Pressed)
-            {
-                scoreButton.Background = new SolidColorBrush(Color.FromRgb(102, 102, 102));
-            }
-            else if(this.scoreButton.IsMouseOver && System.Windows.Input.Mouse.LeftButton != MouseButtonState.Pressed)
-            {
-                scoreButton.Background = new SolidColorBrush(Color.FromRgb(242, 242, 242));
-            }
+            //if(this.scoreButton.IsMouseOver && System.Windows.Input.Mouse.LeftButton == MouseButtonState.Pressed)
+            //{
+            //    scoreButton.Background = new SolidColorBrush(Color.FromRgb(102, 102, 102));
+            //}
+            //else if(this.scoreButton.IsMouseOver && System.Windows.Input.Mouse.LeftButton != MouseButtonState.Pressed)
+            //{
+            //    scoreButton.Background = new SolidColorBrush(Color.FromRgb(242, 242, 242));
+            //}
+        }
+
+        private void ScoreButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            MessageBox.Show("Mouse enter");
         }
     }
 }
