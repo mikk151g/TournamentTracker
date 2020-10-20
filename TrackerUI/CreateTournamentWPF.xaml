@@ -5,47 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TrackerUI"
         mc:Ignorable="d"
-        Title="Create Tournament"
-        Height="541.2"
-        Width="756.8"
+        Title="CreateTournament"
+        Height="521.111"
+        Width="800"
         FontSize="16">
-
-    <Window.Resources>
-        <Style TargetType="{x:Type Button}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}">
-                            <ContentPresenter Content="{TemplateBinding Content}"
-                                              HorizontalAlignment="Center"
-                                              VerticalAlignment="Center" />
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver"
-                         Value="True">
-                    <Setter Property="Background"
-                            Value="#F2F2F2" />
-                </Trigger>
-                <Trigger Property="IsMouseOver"
-                         Value="False">
-                    <Setter Property="Background"
-                            Value="White" />
-                </Trigger>
-                <Trigger Property="IsPressed"
-                         Value="True">
-                    <Setter Property="Background"
-                            Value="#666666" />
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-    </Window.Resources>
-
+    
     <Grid>
         <Label x:Name="headerLabel"
                Content="Create Tournament"
@@ -55,27 +19,27 @@
                Background="#00000000"
                Foreground="#FF3399FF"
                FontFamily="Segoe UI Light"
-               FontSize="28"
-               Grid.ColumnSpan="3" />
+               FontSize="28" />
         <Label x:Name="tournamentNameLabel"
                Content="Tournament Name"
                HorizontalAlignment="Left"
-               Margin="17,68,0,0"
+               Margin="5,62,0,0"
                VerticalAlignment="Top"
                RenderTransformOrigin="0.917,0.525"
                Foreground="#FF3399FF"
                FontSize="20" />
-        <TextBox x:Name="teamNameText"
+        <TextBox x:Name="tournamentNameText"
                  HorizontalAlignment="Left"
                  Height="34"
-                 Margin="17,104,0,0"
+                 Margin="9,99,0,0"
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
-                 Width="265" />
+                 Width="282"
+                 FontSize="22" />
         <Label x:Name="entryFeeLabel"
                Content="Entry Fee"
                HorizontalAlignment="Left"
-               Margin="17,160,0,0"
+               Margin="9,148,0,0"
                VerticalAlignment="Top"
                RenderTransformOrigin="0.917,0.525"
                Foreground="#FF3399FF"
@@ -83,101 +47,117 @@
         <TextBox x:Name="entryFeeText"
                  HorizontalAlignment="Left"
                  Height="34"
-                 Margin="124,163,0,0"
+                 Margin="120,151,0,0"
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
-                 Width="120"
-                 Text="0"
-                 FontSize="22" />
-        <Label x:Name="tournamentPlayersLabel"
-               Content="Teams / Players"
+                 Width="122"
+                 FontSize="22"
+                 Text="0" />
+        <Label x:Name="selectTeamLabel"
+               Content="Select Team"
                HorizontalAlignment="Left"
-               Margin="350,68,0,0"
+               Margin="9,204,0,0"
                VerticalAlignment="Top"
                RenderTransformOrigin="0.917,0.525"
                Foreground="#FF3399FF"
                FontSize="20" />
         <ComboBox x:Name="selectTeamDropDown"
                   HorizontalAlignment="Left"
-                  Margin="17,245,0,0"
+                  Margin="9,241,0,0"
                   VerticalAlignment="Top"
-                  Width="265"
+                  Width="282"
                   Height="37" />
         <Label x:Name="createNewTeamLink"
                HorizontalAlignment="Left"
-               Margin="196,211,0,0"
-               VerticalAlignment="Top">
-            <Hyperlink NavigateUri="">
+               Margin="204,210,0,0"
+               VerticalAlignment="Top"
+               RenderTransformOrigin="0.917,0.525"
+               Foreground="#FF3399FF"
+               FontSize="16">
+            <Hyperlink>
                 create new
             </Hyperlink>
         </Label>
         <Button x:Name="addTeamButton"
                 Content="Add Team"
                 HorizontalAlignment="Left"
-                Margin="74,301,0,0"
+                Margin="63,293,0,0"
                 VerticalAlignment="Top"
-                Width="148"
-                Height="39"
+                Width="159"
+                Height="44"
+                Style="{DynamicResource ButtonStyling}"
                 BorderBrush="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}"
                 FontFamily="Segoe UI Semibold"
                 Foreground="#FF3399FF" />
         <Button x:Name="createPrizeButton"
                 Content="Create Prize"
                 HorizontalAlignment="Left"
-                Margin="74,355,0,0"
+                Margin="63,353,0,0"
                 VerticalAlignment="Top"
-                Width="148"
-                Height="39"
+                Width="159"
+                Height="44"
+                Style="{DynamicResource ButtonStyling}"
                 BorderBrush="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}"
                 FontFamily="Segoe UI Semibold"
                 Foreground="#FF3399FF" />
         <ListBox x:Name="tournamentPlayersListBox"
                  HorizontalAlignment="Left"
-                 Height="123"
-                 Margin="350,104,0,0"
+                 Height="120"
+                 Margin="398,99,0,0"
                  VerticalAlignment="Top"
                  Width="236" />
-        <Button x:Name="deleteSelectedPlayersButton"
-                Content="Delete Selected"
-                HorizontalAlignment="Left"
-                Margin="605,141,0,0"
-                VerticalAlignment="Top"
-                Width="121"
-                Height="50"
-                BorderBrush="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}"
-                FontFamily="Segoe UI Semibold"
-                Foreground="#FF3399FF" />
-        <Label x:Name="prizesLabel"
+        <Label x:Name="tournamentPlayersLabel"
                Content="Teams / Players"
                HorizontalAlignment="Left"
-               Margin="350,257,0,0"
+               Margin="398,62,0,0"
                VerticalAlignment="Top"
                RenderTransformOrigin="0.917,0.525"
                Foreground="#FF3399FF"
                FontSize="20" />
         <ListBox x:Name="prizesListBox"
                  HorizontalAlignment="Left"
-                 Height="122"
-                 Margin="350,294,0,0"
+                 Height="120"
+                 Margin="398,278,0,0"
                  VerticalAlignment="Top"
                  Width="236" />
-        <Button x:Name="deleteSelectedPrizeButton"
+        <Label x:Name="prizesLabel"
+               Content="Prizes"
+               HorizontalAlignment="Left"
+               Margin="398,241,0,0"
+               VerticalAlignment="Top"
+               RenderTransformOrigin="0.917,0.525"
+               Foreground="#FF3399FF"
+               FontSize="20" />
+        <Button x:Name="deleteSelectedPlayerButton"
                 Content="Delete Selected"
                 HorizontalAlignment="Left"
-                Margin="605,332,0,0"
+                Margin="649,135,0,0"
                 VerticalAlignment="Top"
                 Width="121"
                 Height="50"
+                Style="{DynamicResource ButtonStyling}"
+                BorderBrush="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}"
+                FontFamily="Segoe UI Semibold"
+                Foreground="#FF3399FF" />
+        <Button x:Name="deleteSelectedPrizeButton"
+                Content="Delete Selected"
+                HorizontalAlignment="Left"
+                Margin="649,319,0,0"
+                VerticalAlignment="Top"
+                Width="121"
+                Height="50"
+                Style="{DynamicResource ButtonStyling}"
                 BorderBrush="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}"
                 FontFamily="Segoe UI Semibold"
                 Foreground="#FF3399FF" />
         <Button x:Name="createTournamentButton"
                 Content="Create Tournament"
                 HorizontalAlignment="Left"
-                Margin="253,434,0,0"
+                Margin="304,417,0,0"
                 VerticalAlignment="Top"
-                Width="194"
-                Height="64"
+                Width="173"
+                Height="52"
+                Style="{DynamicResource ButtonStyling}"
                 BorderBrush="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}"
                 FontFamily="Segoe UI Semibold"
                 Foreground="#FF3399FF" />
