@@ -18,9 +18,9 @@ namespace TrackerUI
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class TournamentViewer : Window
+    public partial class TournamentViewerWPF : Window
     {
-        public TournamentViewer()
+        public TournamentViewerWPF()
         {
             InitializeComponent();
 
