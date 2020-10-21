@@ -70,6 +70,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="TournamentDashboardWPF.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TournamentViewerWPF.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -86,6 +90,9 @@
     </Compile>
     <Compile Include="CreateTournamentWPF.xaml.cs">
       <DependentUpon>CreateTournamentWPF.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TournamentDashboardWPF.xaml.cs">
+      <DependentUpon>TournamentDashboardWPF.xaml</DependentUpon>
     </Compile>
     <Compile Include="TournamentViewerWPF.xaml.cs">
       <DependentUpon>TournamentViewerWPF.xaml</DependentUpon>

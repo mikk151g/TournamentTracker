@@ -9,7 +9,7 @@
         Height="521.111"
         Width="800"
         FontSize="16">
-    
+
     <Grid>
         <Label x:Name="headerLabel"
                Content="Create Tournament"
@@ -81,9 +81,9 @@
         <Button x:Name="addTeamButton"
                 Content="Add Team"
                 HorizontalAlignment="Left"
-                Margin="63,293,0,0"
+                Margin="70,293,0,0"
                 VerticalAlignment="Top"
-                Width="159"
+                Width="160"
                 Height="44"
                 Style="{DynamicResource ButtonStyling}"
                 BorderBrush="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}"
@@ -92,9 +92,9 @@
         <Button x:Name="createPrizeButton"
                 Content="Create Prize"
                 HorizontalAlignment="Left"
-                Margin="63,353,0,0"
+                Margin="70,353,0,0"
                 VerticalAlignment="Top"
-                Width="159"
+                Width="160"
                 Height="44"
                 Style="{DynamicResource ButtonStyling}"
                 BorderBrush="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}"
