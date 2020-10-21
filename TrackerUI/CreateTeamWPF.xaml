@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TrackerUI"
         mc:Ignorable="d"
         Title="CreateTeam"
-        Height="880"
+        Height="730"
         Width="800"
         FontFamily="16">
     <Grid>
