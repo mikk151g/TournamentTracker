@@ -28,7 +28,7 @@
                RenderTransformOrigin="0.917,0.525"
                Foreground="#FF3399FF"
                FontSize="20" />
-        <TextBox x:Name="tournamentNameText"
+        <TextBox x:Name="tournamentNameValue"
                  HorizontalAlignment="Left"
                  Height="34"
                  Margin="9,99,0,0"
@@ -44,7 +44,7 @@
                RenderTransformOrigin="0.917,0.525"
                Foreground="#FF3399FF"
                FontSize="20" />
-        <TextBox x:Name="entryFeeText"
+        <TextBox x:Name="entryFeeValue"
                  HorizontalAlignment="Left"
                  Height="34"
                  Margin="120,151,0,0"

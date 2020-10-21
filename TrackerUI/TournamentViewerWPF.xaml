@@ -77,7 +77,7 @@
                RenderTransformOrigin="0.917,0.525"
                Foreground="#FF3399FF"
                FontSize="20" />
-        <TextBox x:Name="teamOneScoreText"
+        <TextBox x:Name="teamOneScoreValue"
                  HorizontalAlignment="Left"
                  Height="34"
                  Margin="391,221,0,0"
@@ -101,7 +101,7 @@
                RenderTransformOrigin="0.917,0.525"
                Foreground="#FF3399FF"
                FontSize="20" />
-        <TextBox x:Name="teamTwoScoreText"
+        <TextBox x:Name="teamTwoScoreValue"
                  HorizontalAlignment="Left"
                  Height="34"
                  Margin="391,359,0,0"
