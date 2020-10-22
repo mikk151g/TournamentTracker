@@ -83,8 +83,8 @@
                  Margin="391,221,0,0"
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
-                 Width="120"
-                 FontSize="22" />
+                 VerticalContentAlignment="Center"
+                 Width="120" />
         <Label x:Name="teamTwoNameLabel"
                Content="&lt;Team Two&gt;"
                HorizontalAlignment="Left"
@@ -107,8 +107,8 @@
                  Margin="391,359,0,0"
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
-                 Width="120"
-                 FontSize="22" />
+                 VerticalContentAlignment="Center"
+                 Width="120" />
         <Label x:Name="versusLabel"
                Content="-VS-"
                HorizontalAlignment="Left"

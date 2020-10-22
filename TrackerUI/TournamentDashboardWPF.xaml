@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TrackerUI"
         mc:Ignorable="d"
-        Title="TournamentDashboardWPF"
+        Title="Tournament Dashboard"
         Height="370.082"
         Width="353.689"
         FontSize="16">

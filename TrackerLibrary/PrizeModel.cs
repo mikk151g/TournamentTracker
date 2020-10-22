@@ -10,6 +10,7 @@ namespace TrackerLibrary
     {
         #region Fields
 
+        private int _id;
         private int _placeNumber;
         private string _placeName;
         private decimal _prizeAmount;
@@ -18,6 +19,15 @@ namespace TrackerLibrary
         #endregion
 
         #region Properties
+
+        /// <summary>
+        /// Unique identifier for prizes.
+        /// </summary>
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value;  }
+        }
 
         /// <summary>
         /// Represents which place the prize 
@@ -59,5 +69,27 @@ namespace TrackerLibrary
         }
 
         #endregion
+
+        public PrizeModel()
+        {
+
+        }
+
+        public PrizeModel(string placeName, string placeNumber, string prizeAmount, string prizePercentage)
+        {
+            PlaceName = placeName;
+
+            int placeNumberValue = 0;
+            int.TryParse(placeNumber, out placeNumberValue);
+            PlaceNumber = placeNumberValue;
+
+            decimal prizeAmountValue = 0;
+            decimal.TryParse(prizeAmount, out prizeAmountValue);
+            PrizeAmount = prizeAmountValue;
+
+            double prizePercentageValue = 0;
+            double.TryParse(prizePercentage, out prizePercentageValue);
+            PrizePercentage = prizePercentageValue;
+        }
     }
 }
