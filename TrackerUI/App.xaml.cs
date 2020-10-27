@@ -17,7 +17,7 @@ namespace TrackerUI
         protected override void OnStartup(StartupEventArgs e)
         {
             // Initialize the database connection
-            TrackerLibrary.GlobalConfig.InitializeConnections(DatabaseType.Sql);
+            TrackerLibrary.GlobalConfig.InitializeConnections(DatabaseType.TextFile);
 
             base.OnStartup(e);
         }
