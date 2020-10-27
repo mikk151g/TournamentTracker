@@ -32,7 +32,7 @@
                  HorizontalAlignment="Left"
                  Height="34"
                  Margin="9,99,0,0"
-                 TextWrapping="Wrap"
+                 TextWrapping="NoWrap"
                  VerticalAlignment="Top"
                  VerticalContentAlignment="Center"
                  Width="282" />
@@ -48,7 +48,7 @@
                  HorizontalAlignment="Left"
                  Height="34"
                  Margin="120,151,0,0"
-                 TextWrapping="Wrap"
+                 TextWrapping="NoWrap"
                  VerticalAlignment="Top"
                  VerticalContentAlignment="Center"
                  Width="122"

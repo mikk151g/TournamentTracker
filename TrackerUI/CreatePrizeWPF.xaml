@@ -31,7 +31,7 @@
                  HorizontalAlignment="Left"
                  Height="34"
                  Margin="180,74,0,0"
-                 TextWrapping="Wrap"
+                 TextWrapping="NoWrap"
                  VerticalAlignment="Top"
                  VerticalContentAlignment="Center"
                  Width="157" />
@@ -47,7 +47,7 @@
                  HorizontalAlignment="Left"
                  Height="34"
                  Margin="180,125,0,0"
-                 TextWrapping="Wrap"
+                 TextWrapping="NoWrap"
                  VerticalAlignment="Top"
                  VerticalContentAlignment="Center"
                  Width="157" />
@@ -63,7 +63,7 @@
                  HorizontalAlignment="Left"
                  Height="34"
                  Margin="180,176,0,0"
-                 TextWrapping="Wrap"
+                 TextWrapping="NoWrap"
                  VerticalAlignment="Top"
                  VerticalContentAlignment="Center"
                  Width="157"
@@ -81,7 +81,7 @@
                  Height="34"
                  Margin="180,274,0,0"
                  VerticalContentAlignment="Center"
-                 TextWrapping="Wrap"
+                 TextWrapping="NoWrap"
                  VerticalAlignment="Top"
                  Width="157"
                  Text="0" />

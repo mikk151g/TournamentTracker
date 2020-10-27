@@ -10,6 +10,7 @@ namespace TrackerLibrary.Models
     {
         #region Fields
 
+        private int _id;
         private string _firstName;
         private string _lastName;
         private string _emailAddress;
@@ -18,6 +19,15 @@ namespace TrackerLibrary.Models
         #endregion
 
         #region Properties
+
+        /// <summary>
+        /// Unique identifier for person.
+        /// </summary>
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
 
         /// <summary>
         /// Represents the first name of the person.
