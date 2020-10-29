@@ -15,6 +15,7 @@ namespace TrackerLibrary.Models
         private string _lastName;
         private string _emailAddress;
         private string _cellphoneNumber;
+        private string _fullName;
 
         #endregion
 
@@ -63,6 +64,14 @@ namespace TrackerLibrary.Models
         {
             get { return _cellphoneNumber; }
             set { _cellphoneNumber = value; }
+        }
+
+        public string FullName
+        {
+            get 
+            { 
+                return $"{ FirstName } { LastName }";
+            }
         }
 
         #endregion

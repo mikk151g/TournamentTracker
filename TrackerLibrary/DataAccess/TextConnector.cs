@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TrackerLibrary.Models;
 using TrackerLibrary.DataAccess.TextHelpers;
+using System.Collections.ObjectModel;
 
 namespace TrackerLibrary.DataAccess
 {
@@ -61,6 +62,11 @@ namespace TrackerLibrary.DataAccess
             prizes.SaveToPrizeFile(PrizesFile);
 
             return model;
+        }
+
+        public ObservableCollection<PersonModel> GetPerson_All()
+        {
+            return new ObservableCollection<PersonModel>(PeopleFile.FullFilePath().LoadFile().ConvertToPersonModels());
         }
     }
 }

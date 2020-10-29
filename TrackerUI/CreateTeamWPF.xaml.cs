@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,11 +22,64 @@ namespace TrackerUI
     /// <summary>
     /// Interaction logic for CreateTeam.xaml
     /// </summary>
-    public partial class CreateTeamWPF : Window
+    public partial class CreateTeamWPF : Window, INotifyPropertyChanged
     {
+        private ObservableCollection<PersonModel> _availableTeamMembers;
+        private ObservableCollection<PersonModel> _selectedTeamMembers;
+
+        public ObservableCollection<PersonModel> AvailableTeamMembers
+        {
+            get { return _availableTeamMembers; }
+            set
+            {
+                if (_availableTeamMembers != value)
+                {
+                    _availableTeamMembers = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+
+        public ObservableCollection<PersonModel> SelectedTeamMembers
+        {
+            get { return _selectedTeamMembers; }
+            set
+            {
+                if (_selectedTeamMembers != value)
+                {
+                    _selectedTeamMembers = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         public CreateTeamWPF()
         {
+            DataContext = this;
+
             InitializeComponent();
+            AvailableTeamMembers = GlobalConfig.Connection.GetPerson_All();
+            SelectedTeamMembers = new ObservableCollection<PersonModel>();
+            //CreateSampleData();
+            selectTeamMemberDropDown.SelectedIndex = 0;
+
+        }
+
+        private void CreateSampleData()
+        {
+            AvailableTeamMembers.Add(new PersonModel { FirstName = "Tim", LastName = "Corey" });
+            AvailableTeamMembers.Add(new PersonModel { FirstName = "Sue", LastName = "Storm" });
+
+            SelectedTeamMembers.Add(new PersonModel { FirstName = "Bill", LastName = "Jones" });
+            SelectedTeamMembers.Add(new PersonModel { FirstName = "Jane", LastName = "Smith" });
         }
 
         private void createMemberButton_Click(object sender, RoutedEventArgs e)
@@ -37,7 +93,9 @@ namespace TrackerUI
                 p.EmailAddress = emailValue.Text;
                 p.CellphoneNumber = cellphoneValue.Text;
 
-                GlobalConfig.Connection.CreatePerson(p);
+                p = GlobalConfig.Connection.CreatePerson(p);
+
+                SelectedTeamMembers.Add(p);
 
                 firstNameValue.Text = "";
                 lastNameValue.Text = "";
@@ -73,6 +131,38 @@ namespace TrackerUI
             }
 
             return true;
+        }
+
+        private void addMemberButton_Click(object sender, RoutedEventArgs e)
+        {
+            PersonModel p = (PersonModel)selectTeamMemberDropDown.SelectedItem;
+
+            if (p != null)
+            {
+                AvailableTeamMembers.Remove(p);
+                SelectedTeamMembers.Add(p);
+
+                if (_availableTeamMembers.Count > 0)
+                {
+                    selectTeamMemberDropDown.SelectedIndex = 0;
+                }
+            }
+        }
+
+        private void removeSelectedMemberButton_Click(object sender, RoutedEventArgs e)
+        {
+            PersonModel p = (PersonModel)teamMembersListBox.SelectedItem;
+
+            if (p != null)
+            {
+                SelectedTeamMembers.Remove(p);
+                AvailableTeamMembers.Add(p);
+
+                if (_availableTeamMembers.Count > 0)
+                {
+                    selectTeamMemberDropDown.SelectedIndex = 0;
+                }
+            }
         }
     }
 }

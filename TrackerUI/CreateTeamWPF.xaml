@@ -45,11 +45,15 @@
                Foreground="#FF3399FF"
                FontSize="20" />
         <ComboBox x:Name="selectTeamMemberDropDown"
+                  ItemsSource="{Binding AvailableTeamMembers, Mode=TwoWay}"
+                  DisplayMemberPath="FullName"
+                  VerticalContentAlignment="Center"
                   HorizontalAlignment="Left"
                   Margin="9,192,0,0"
                   VerticalAlignment="Top"
                   Width="282"
-                  Height="37" />
+                  Height="37"
+                  FontSize="16" />
         <Button x:Name="addMemberButton"
                 Content="Add Member"
                 HorizontalAlignment="Left"
@@ -60,7 +64,8 @@
                 Style="{DynamicResource ButtonStyling}"
                 BorderBrush="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}"
                 FontFamily="Segoe UI Semibold"
-                Foreground="#FF3399FF" />
+                Foreground="#FF3399FF"
+                Click="addMemberButton_Click" />
         <GroupBox x:Name="addNewMemberGroupBox"
                   Header="Add New Member"
                   HorizontalAlignment="Left"
@@ -151,13 +156,16 @@
                 Foreground="#FF3399FF"
                 Click="createMemberButton_Click" />
         <ListBox x:Name="teamMembersListBox"
+                 ItemsSource="{Binding SelectedTeamMembers}"
+                 DisplayMemberPath="FullName"
                  HorizontalAlignment="Left"
                  Height="500"
                  Margin="363,103,0,0"
                  VerticalAlignment="Top"
-                 Width="236" />
-        <Button x:Name="deleteSelectedMemberButton"
-                Content="Delete Selected"
+                 Width="236"
+                 FontSize="16" />
+        <Button x:Name="removeSelectedMemberButton"
+                Content="Remove Selected"
                 HorizontalAlignment="Left"
                 Margin="616,330,0,0"
                 VerticalAlignment="Top"
@@ -166,7 +174,8 @@
                 Style="{DynamicResource ButtonStyling}"
                 BorderBrush="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}"
                 FontFamily="Segoe UI Semibold"
-                Foreground="#FF3399FF" />
+                Foreground="#FF3399FF"
+                Click="removeSelectedMemberButton_Click" />
         <Button x:Name="createTeamButton"
                 Content="Create Team"
                 HorizontalAlignment="Left"
