@@ -10,20 +10,21 @@ namespace TrackerLibrary.Models
     {
         #region Fields
 
-        private List<PersonModel> _teamMembers = new List<PersonModel>();
+        private int _id;
         private string _teamName;
+        private List<PersonModel> _teamMembers = new List<PersonModel>();
 
         #endregion
 
         #region Properties
 
         /// <summary>
-        /// Represents the members/persons on the team.
+        /// Unique identifier for team.
         /// </summary>
-        public List<PersonModel> TeamMembers
+        public int Id
         {
-            get { return _teamMembers; }
-            set { _teamMembers = value; }
+            get { return _id; }
+            set { _id = value; }
         }
 
         /// <summary>
@@ -33,6 +34,15 @@ namespace TrackerLibrary.Models
         {
             get { return _teamName; }
             set { _teamName = value; }
+        }
+
+        /// <summary>
+        /// Represents the members/persons on the team.
+        /// </summary>
+        public List<PersonModel> TeamMembers
+        {
+            get { return _teamMembers; }
+            set { _teamMembers = value; }
         }
 
         #endregion

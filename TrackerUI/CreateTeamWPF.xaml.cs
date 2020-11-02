@@ -164,5 +164,16 @@ namespace TrackerUI
                 }
             }
         }
+
+        private void createTeamButton_Click(object sender, RoutedEventArgs e)
+        {
+            TeamModel t = new TeamModel();
+            t.TeamName = teamNameValue.Text;
+            t.TeamMembers = new List<PersonModel>(SelectedTeamMembers);
+
+            t = GlobalConfig.Connection.CreateTeam(t);
+
+            // TODO - If we aren't closing this window after creation, reset the window
+        }
     }
 }
