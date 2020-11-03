@@ -61,12 +61,18 @@
                RenderTransformOrigin="0.917,0.525"
                Foreground="#FF3399FF"
                FontSize="20" />
-        <ComboBox x:Name="selectTeamDropDown"
-                  HorizontalAlignment="Left"
-                  Margin="9,241,0,0"
-                  VerticalAlignment="Top"
-                  Width="282"
-                  Height="37" />
+        <ComboBox 
+            x:Name="selectTeamDropDown"
+            ItemsSource="{Binding Path=AvailableTeams}"
+            DisplayMemberPath="TeamName"
+            SelectedIndex="0"
+            VerticalContentAlignment="Center"
+            HorizontalAlignment="Left"
+            Margin="9,241,0,0"
+            VerticalAlignment="Top"
+            Width="282"
+            Height="37">
+        </ComboBox>
         <Label x:Name="createNewTeamLink"
                HorizontalAlignment="Left"
                Margin="204,210,0,0"
@@ -88,7 +94,8 @@
                 Style="{DynamicResource ButtonStyling}"
                 BorderBrush="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}"
                 FontFamily="Segoe UI Semibold"
-                Foreground="#FF3399FF" />
+                Foreground="#FF3399FF"
+                Click="addTeamButton_Click" />
         <Button x:Name="createPrizeButton"
                 Content="Create Prize"
                 HorizontalAlignment="Left"
@@ -100,7 +107,9 @@
                 BorderBrush="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}"
                 FontFamily="Segoe UI Semibold"
                 Foreground="#FF3399FF" />
-        <ListBox x:Name="tournamentPlayersListBox"
+        <ListBox x:Name="tournamentTeamsListBox"
+                 ItemsSource="{Binding Path=SelectedTeams}"
+                 DisplayMemberPath="TeamName"
                  HorizontalAlignment="Left"
                  Height="120"
                  Margin="398,99,0,0"
@@ -115,6 +124,8 @@
                Foreground="#FF3399FF"
                FontSize="20" />
         <ListBox x:Name="prizesListBox"
+                 ItemsSource="{Binding Path=SelectedPrizes}"
+                 DisplayMemberPath="PlaceName"
                  HorizontalAlignment="Left"
                  Height="120"
                  Margin="398,278,0,0"
