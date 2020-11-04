@@ -13,6 +13,7 @@ namespace TrackerLibrary.Models
     {
         #region Fields
 
+        private int _id;
         private List<MatchupEntryModel> _entries = new List<MatchupEntryModel>();
         private TeamModel _winner;
         private int _matchupRound;
@@ -20,6 +21,15 @@ namespace TrackerLibrary.Models
         #endregion
 
         #region Properties
+
+        /// <summary>
+        /// Unique identifier for matchup.
+        /// </summary>
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
 
         /// <summary>
         /// Represents the two teams in this matchup

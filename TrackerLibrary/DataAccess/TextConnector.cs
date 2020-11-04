@@ -14,6 +14,7 @@ namespace TrackerLibrary.DataAccess
         private const string PrizesFile = "PrizeModels.csv";
         private const string PeopleFile = "PersonModels.csv";
         private const string TeamsFile = "TeamModels.csv";
+        private const string TournamentsFile = "TournamentModels.csv";
 
         public PersonModel CreatePerson(PersonModel model)
         {
@@ -85,6 +86,25 @@ namespace TrackerLibrary.DataAccess
             return model;
         }
 
+        public void CreateTournament(TournamentModel model)
+        {
+            List<TournamentModel> tournaments = TournamentsFile.FullFilePath().LoadFile().ConvertToTournamentModels(TeamsFile, PeopleFile, PrizesFile);
+
+            // Find the max ID
+            int currentId = 0;
+
+            if (tournaments.Count > 0)
+            {
+                currentId = tournaments.OrderByDescending(x => x.Id).First().Id + 1;
+            }
+
+            model.Id = currentId;
+
+            tournaments.Add(model);
+
+            tournaments.SaveToTournamentFile(TournamentsFile);
+        }
+
         public ObservableCollection<PersonModel> GetPerson_All()
         {
             return new ObservableCollection<PersonModel>(PeopleFile.FullFilePath().LoadFile().ConvertToPersonModels());
@@ -92,7 +112,7 @@ namespace TrackerLibrary.DataAccess
 
         public ObservableCollection<TeamModel> GetTeam_All()
         {
-            return new ObservableCollection<TeamModel>(TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile));
+            return new ObservableCollection<TeamModel>(TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels(TeamsFile));
         }
     }
 }

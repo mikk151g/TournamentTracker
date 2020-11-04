@@ -174,7 +174,8 @@
                 Style="{DynamicResource ButtonStyling}"
                 BorderBrush="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}"
                 FontFamily="Segoe UI Semibold"
-                Foreground="#FF3399FF" />
+                Foreground="#FF3399FF"
+                Click="createTournamentButton_Click" />
 
     </Grid>
 </Window>

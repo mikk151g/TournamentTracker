@@ -10,6 +10,7 @@ namespace TrackerLibrary.Models
     {
         #region Fields
 
+        private int _id;
         private string _tournamentName;
         private decimal _entryFee;
         private List<TeamModel> _enteredTeams = new List<TeamModel>();
@@ -19,6 +20,15 @@ namespace TrackerLibrary.Models
         #endregion
 
         #region Properties
+
+        /// <summary>
+        /// Unique identifier for tournament.
+        /// </summary>
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
 
         /// <summary>
         /// Represents the name of the tournament.
