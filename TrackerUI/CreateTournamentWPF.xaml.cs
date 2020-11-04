@@ -22,7 +22,7 @@ namespace TrackerUI
     /// <summary>
     /// Interaction logic for CreateTournament.xaml
     /// </summary>
-    public partial class CreateTournamentWPF : Window, INotifyPropertyChanged
+    public partial class CreateTournamentWPF : Window, INotifyPropertyChanged, IPrizeRequester, ITeamRequester
     {
         private ObservableCollection<TeamModel> _availableTeams;
         private ObservableCollection<TeamModel> _selectedTeams;
@@ -92,6 +92,60 @@ namespace TrackerUI
             {
                 AvailableTeams.Remove(t);
                 SelectedTeams.Add(t);
+            }
+        }
+
+        private void createPrizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Call the CreatePrize window
+            CreatePrizeWPF wpf = new CreatePrizeWPF(this);
+            wpf.Show();
+
+            // Get back a PrizeModel from the window
+            // Take the PrizeModel and put it into the observable collection of selected prizes
+        }
+
+        public void PrizeComplete(PrizeModel model)
+        {
+            // Get back a PrizeModel from the window
+            // Take the PrizeModel and put it into the observable collection of selected prizes
+            SelectedPrizes.Add(model);
+        }
+
+        public void TeamComplete(TeamModel model)
+        {
+            SelectedTeams.Add(model);
+        }
+
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            CreateTeamWPF wpf = new CreateTeamWPF(this);
+            wpf.Show();
+        }
+
+        private void removeSelectedTeamButton_Click(object sender, RoutedEventArgs e)
+        {
+            TeamModel t = (TeamModel)tournamentTeamsListBox.SelectedItem;
+
+            if (t != null)
+            {
+                SelectedTeams.Remove(t);
+                AvailableTeams.Add(t);
+
+                if (AvailableTeams.Count > 0)
+                {
+                    selectTeamDropDown.SelectedIndex = 0;
+                }
+            }
+        }
+
+        private void removeSelectedPrizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            PrizeModel p = (PrizeModel)prizesListBox.SelectedItem;
+
+            if (p != null)
+            {
+                SelectedPrizes.Remove(p);
             }
         }
     }

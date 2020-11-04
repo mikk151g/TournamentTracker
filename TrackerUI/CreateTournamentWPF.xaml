@@ -80,7 +80,7 @@
                RenderTransformOrigin="0.917,0.525"
                Foreground="#FF3399FF"
                FontSize="16">
-            <Hyperlink>
+            <Hyperlink Click="Hyperlink_Click">
                 create new
             </Hyperlink>
         </Label>
@@ -106,7 +106,8 @@
                 Style="{DynamicResource ButtonStyling}"
                 BorderBrush="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}"
                 FontFamily="Segoe UI Semibold"
-                Foreground="#FF3399FF" />
+                Foreground="#FF3399FF"
+                Click="createPrizeButton_Click" />
         <ListBox x:Name="tournamentTeamsListBox"
                  ItemsSource="{Binding Path=SelectedTeams}"
                  DisplayMemberPath="TeamName"
@@ -139,28 +140,30 @@
                RenderTransformOrigin="0.917,0.525"
                Foreground="#FF3399FF"
                FontSize="20" />
-        <Button x:Name="deleteSelectedPlayerButton"
-                Content="Delete Selected"
+        <Button x:Name="removeSelectedTeamButton"
+                Content="Remove Selected"
                 HorizontalAlignment="Left"
                 Margin="649,135,0,0"
                 VerticalAlignment="Top"
-                Width="121"
+                Width="133"
                 Height="50"
                 Style="{DynamicResource ButtonStyling}"
                 BorderBrush="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}"
                 FontFamily="Segoe UI Semibold"
-                Foreground="#FF3399FF" />
-        <Button x:Name="deleteSelectedPrizeButton"
-                Content="Delete Selected"
+                Foreground="#FF3399FF"
+                Click="removeSelectedTeamButton_Click" />
+        <Button x:Name="removeSelectedPrizeButton"
+                Content="Remove Selected"
                 HorizontalAlignment="Left"
                 Margin="649,319,0,0"
                 VerticalAlignment="Top"
-                Width="121"
+                Width="133"
                 Height="50"
                 Style="{DynamicResource ButtonStyling}"
                 BorderBrush="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}"
                 FontFamily="Segoe UI Semibold"
-                Foreground="#FF3399FF" />
+                Foreground="#FF3399FF"
+                Click="removeSelectedPrizeButton_Click" />
         <Button x:Name="createTournamentButton"
                 Content="Create Tournament"
                 HorizontalAlignment="Left"

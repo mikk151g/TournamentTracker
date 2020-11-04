@@ -91,6 +91,8 @@
     <Compile Include="CreateTournamentWPF.xaml.cs">
       <DependentUpon>CreateTournamentWPF.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IPrizeRequester.cs" />
+    <Compile Include="ITeamRequester.cs" />
     <Compile Include="TournamentDashboardWPF.xaml.cs">
       <DependentUpon>TournamentDashboardWPF.xaml</DependentUpon>
     </Compile>

@@ -22,9 +22,12 @@ namespace TrackerUI
     /// </summary>
     public partial class CreatePrizeWPF : Window
     {
-        public CreatePrizeWPF()
+        IPrizeRequester callingWindow;
+        public CreatePrizeWPF(IPrizeRequester caller)
         {
             InitializeComponent();
+
+            callingWindow = caller;
         }
 
         private void createPrizeButton_Click(object sender, RoutedEventArgs e)
@@ -39,10 +42,14 @@ namespace TrackerUI
 
                 GlobalConfig.Connection.CreatePrize(model);
 
-                placeNameValue.Text = "";
-                placeNumberValue.Text = "";
-                prizeAmountValue.Text = "0";
-                prizePercentageValue.Text = "0";
+                callingWindow.PrizeComplete(model);
+
+                this.Close();
+
+                //placeNameValue.Text = "";
+                //placeNumberValue.Text = "";
+                //prizeAmountValue.Text = "0";
+                //prizePercentageValue.Text = "0";
             }
             else
             {

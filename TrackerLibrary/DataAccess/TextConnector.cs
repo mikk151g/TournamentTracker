@@ -92,7 +92,7 @@ namespace TrackerLibrary.DataAccess
 
         public ObservableCollection<TeamModel> GetTeam_All()
         {
-            throw new NotImplementedException();
+            return new ObservableCollection<TeamModel>(TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile));
         }
     }
 }

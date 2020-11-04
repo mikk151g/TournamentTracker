@@ -26,6 +26,7 @@ namespace TrackerUI
     {
         private ObservableCollection<PersonModel> _availableTeamMembers;
         private ObservableCollection<PersonModel> _selectedTeamMembers;
+        private ITeamRequester callingWindow;
 
         public ObservableCollection<PersonModel> AvailableTeamMembers
         {
@@ -54,18 +55,13 @@ namespace TrackerUI
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public CreateTeamWPF()
+        public CreateTeamWPF(ITeamRequester caller)
         {
             DataContext = this;
 
             InitializeComponent();
+
+            callingWindow = caller;
             AvailableTeamMembers = GlobalConfig.Connection.GetPerson_All();
             SelectedTeamMembers = new ObservableCollection<PersonModel>();
             //CreateSampleData();
@@ -133,6 +129,13 @@ namespace TrackerUI
             return true;
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         private void addMemberButton_Click(object sender, RoutedEventArgs e)
         {
             PersonModel p = (PersonModel)selectTeamMemberDropDown.SelectedItem;
@@ -171,9 +174,10 @@ namespace TrackerUI
             t.TeamName = teamNameValue.Text;
             t.TeamMembers = new List<PersonModel>(SelectedTeamMembers);
 
-            t = GlobalConfig.Connection.CreateTeam(t);
+            GlobalConfig.Connection.CreateTeam(t);
 
-            // TODO - If we aren't closing this window after creation, reset the window
+            callingWindow.TeamComplete(t);
+            this.Close();
         }
     }
 }
