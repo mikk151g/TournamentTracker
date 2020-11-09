@@ -10,6 +10,7 @@ namespace TrackerLibrary.Models
     {
         #region Fields
 
+        private int _id;
         private TeamModel _teamCompeting;
         private double _score;
         private MatchupModel _parentMatchup;
@@ -17,6 +18,15 @@ namespace TrackerLibrary.Models
         #endregion
 
         #region Properties
+
+        /// <summary>
+        /// Unique identifier for matchup entry.
+        /// </summary>
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
 
         /// <summary>
         /// Represents one of the teams in a matchup.

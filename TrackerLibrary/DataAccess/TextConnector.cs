@@ -15,6 +15,8 @@ namespace TrackerLibrary.DataAccess
         private const string PeopleFile = "PersonModels.csv";
         private const string TeamsFile = "TeamModels.csv";
         private const string TournamentsFile = "TournamentModels.csv";
+        private const string MatchupsFile = "MatchupModels.csv";
+        private const string MatchupEntriesFile = "MatchupEntryModels.csv";
 
         public PersonModel CreatePerson(PersonModel model)
         {
@@ -100,6 +102,8 @@ namespace TrackerLibrary.DataAccess
 
             model.Id = currentId;
 
+            model.SaveRoundsToFile(MatchupsFile, MatchupEntriesFile);
+
             tournaments.Add(model);
 
             tournaments.SaveToTournamentFile(TournamentsFile);
@@ -112,7 +116,8 @@ namespace TrackerLibrary.DataAccess
 
         public ObservableCollection<TeamModel> GetTeam_All()
         {
-            return new ObservableCollection<TeamModel>(TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels(TeamsFile));
+            ObservableCollection<TeamModel> teams = new ObservableCollection<TeamModel>(TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile));
+            return teams;
         }
     }
 }

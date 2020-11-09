@@ -10,6 +10,13 @@ namespace TrackerLibrary
 {
     public static class GlobalConfig
     {
+        public const string PrizesFile = "PrizeModels.csv";
+        public const string PeopleFile = "PersonModels.csv";
+        public const string TeamsFile = "TeamModels.csv";
+        public const string TournamentsFile = "TournamentModels.csv";
+        public const string MatchupsFile = "MatchupModels.csv";
+        public const string MatchupEntriesFile = "MatchupEntryModels.csv";
+
         private static IDataConnection _connection;
 
         public static IDataConnection Connection
@@ -22,14 +29,12 @@ namespace TrackerLibrary
         {
             if (db == DatabaseType.Sql)
             {
-                // TODO - Set up the SQL Connector properly
                 SqlConnector sql = new SqlConnector();
                 Connection = sql;
             }
 
             else if (db == DatabaseType.TextFile)
             {
-                // TODO - Create the Text Connection
                 TextConnector text = new TextConnector();
                 Connection = text;
             }
