@@ -48,7 +48,7 @@ namespace TrackerLibrary.DataAccess
             List<PrizeModel> prizes = PrizesFile.FullFilePath().LoadFile().ConvertToPrizeModels();
 
             // Find the max ID
-            int currentId = 0;
+            int currentId = 1;
 
             if (prizes.Count > 0)
             {
@@ -72,7 +72,7 @@ namespace TrackerLibrary.DataAccess
             List<TeamModel> teams = TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile);
 
             // Find the max ID
-            int currentId = 0;
+            int currentId = 1;
 
             if (teams.Count > 0)
             {
@@ -93,7 +93,7 @@ namespace TrackerLibrary.DataAccess
             List<TournamentModel> tournaments = TournamentsFile.FullFilePath().LoadFile().ConvertToTournamentModels(TeamsFile, PeopleFile, PrizesFile);
 
             // Find the max ID
-            int currentId = 0;
+            int currentId = 1;
 
             if (tournaments.Count > 0)
             {

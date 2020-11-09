@@ -93,6 +93,11 @@ namespace TrackerUI
                 AvailableTeams.Remove(t);
                 SelectedTeams.Add(t);
             }
+
+            if (AvailableTeams.Count > 0)
+            {
+                selectTeamDropDown.SelectedIndex = 0;
+            }
         }
 
         private void createPrizeButton_Click(object sender, RoutedEventArgs e)
