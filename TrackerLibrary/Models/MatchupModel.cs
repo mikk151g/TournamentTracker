@@ -15,6 +15,7 @@ namespace TrackerLibrary.Models
 
         private int _id;
         private List<MatchupEntryModel> _entries = new List<MatchupEntryModel>();
+        private int _winnerId;
         private TeamModel _winner;
         private int _matchupRound;
 
@@ -38,6 +39,15 @@ namespace TrackerLibrary.Models
         {
             get { return _entries; }
             set { _entries = value; }
+        }
+
+        /// <summary>
+        /// The ID from the database that will be used to identify the winner.
+        /// </summary>
+        public int WinnerId
+        {
+            get { return _winnerId; }
+            set { _winnerId = value; }
         }
 
         /// <summary>

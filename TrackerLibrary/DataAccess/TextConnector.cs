@@ -119,5 +119,10 @@ namespace TrackerLibrary.DataAccess
             ObservableCollection<TeamModel> teams = new ObservableCollection<TeamModel>(TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile));
             return teams;
         }
+
+        public ObservableCollection<TournamentModel> GetTournament_All()
+        {
+            return new ObservableCollection<TournamentModel>(TournamentsFile.FullFilePath().LoadFile().ConvertToTournamentModels(TeamsFile, PeopleFile, PrizesFile));
+        }
     }
 }

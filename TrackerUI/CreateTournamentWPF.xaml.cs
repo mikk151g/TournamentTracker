@@ -184,6 +184,20 @@ namespace TrackerUI
             // Create all of the prize entries
             // Create all of the team entries
             GlobalConfig.Connection.CreateTournament(tm);
+
+            if (!IsWindowOpen<TournamentDashboardWPF>())
+            {
+                TournamentDashboardWPF wpf = new TournamentDashboardWPF();
+                wpf.Show();
+            }
+            this.Close();
+        }
+
+        public bool IsWindowOpen<T>(string name = "") where T : Window
+        {
+            return string.IsNullOrEmpty(name)
+               ? Application.Current.Windows.OfType<T>().Any()
+               : Application.Current.Windows.OfType<T>().Any(w => w.Name.Equals(name));
         }
     }
 }

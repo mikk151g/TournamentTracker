@@ -16,5 +16,6 @@ namespace TrackerLibrary.DataAccess
         void CreateTournament(TournamentModel model);
         ObservableCollection<TeamModel> GetTeam_All();
         ObservableCollection<PersonModel> GetPerson_All();
+        ObservableCollection<TournamentModel> GetTournament_All();
     }
 }
