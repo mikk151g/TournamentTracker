@@ -18,6 +18,7 @@ namespace TrackerLibrary.Models
         private int _winnerId;
         private TeamModel _winner;
         private int _matchupRound;
+        private string _displayName;
 
         #endregion
 
@@ -66,6 +67,36 @@ namespace TrackerLibrary.Models
         {
             get { return _matchupRound; }
             set { _matchupRound = value; }
+        }
+
+        public string DisplayName
+        {
+            get
+            {
+                string output = "";
+
+                foreach (MatchupEntryModel me in Entries)
+                {
+                    if (me.TeamCompeting != null)
+                    {
+                        if (output.Length == 0)
+                        {
+                            output = me.TeamCompeting.TeamName;
+                        }
+                        else
+                        {
+                            output += $" vs {me.TeamCompeting.TeamName}";
+                        } 
+                    }
+                    else
+                    {
+                        output = "Matchup Not Yet Determined";
+                        break;
+                    }
+                }
+
+                return output;
+            }
         }
 
         #endregion

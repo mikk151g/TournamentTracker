@@ -68,5 +68,12 @@ namespace TrackerUI
                ? Application.Current.Windows.OfType<T>().Any()
                : Application.Current.Windows.OfType<T>().Any(w => w.Name.Equals(name));
         }
+
+        private void loadTournamentButton_Click(object sender, RoutedEventArgs e)
+        {
+            TournamentModel tm = (TournamentModel)loadExistingTournamentDropDown.SelectedItem;
+            TournamentViewerWPF wpf = new TournamentViewerWPF(tm);
+            wpf.Show();
+        }
     }
 }

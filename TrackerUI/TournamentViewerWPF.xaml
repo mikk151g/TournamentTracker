@@ -21,7 +21,7 @@
                FontFamily="Segoe UI Light"
                FontSize="28" />
         <Label x:Name="tournamentNameLabel"
-               Content="&lt;None&gt;"
+               Content="{Binding Path=TournamentName}"
                HorizontalAlignment="Left"
                Margin="165,10,0,0"
                VerticalAlignment="Top"
@@ -38,11 +38,15 @@
                Foreground="#FF3399FF"
                FontSize="20" />
         <ComboBox x:Name="roundDropDown"
+                  ItemsSource="{Binding Path=Rounds}"
+                  SelectedIndex="0"
+                  VerticalContentAlignment="Center"
                   HorizontalAlignment="Left"
                   Margin="92,80,0,0"
                   VerticalAlignment="Top"
                   Width="154"
-                  Height="37" />
+                  Height="37"
+                  SelectionChanged="roundDropDown_SelectionChanged" />
         <CheckBox x:Name="unplayedOnlyCheckBox"
                   HorizontalAlignment="Left"
                   Margin="82,137,0,0"
@@ -56,11 +60,14 @@
                        Width="154" />
         </CheckBox>
         <ListBox x:Name="matchupListBox"
+                 ItemsSource="{Binding Path=SelectedMatchups}"
+                 DisplayMemberPath="DisplayName"
                  HorizontalAlignment="Left"
                  Height="232"
                  Margin="10,176,0,0"
                  VerticalAlignment="Top"
-                 Width="236" />
+                 Width="236"
+                 SelectionChanged="matchupListBox_SelectionChanged" />
         <Label x:Name="teamOneNameLabel"
                Content="&lt;Team One&gt;"
                HorizontalAlignment="Left"

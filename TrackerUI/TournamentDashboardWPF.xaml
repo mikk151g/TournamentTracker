@@ -47,7 +47,8 @@
                 Style="{DynamicResource ButtonStyling}"
                 BorderBrush="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}"
                 FontFamily="Segoe UI Semibold"
-                Foreground="#FF3399FF" />
+                Foreground="#FF3399FF"
+                Click="loadTournamentButton_Click" />
         <Button x:Name="createTournamentButton"
                 Content="Create Tournament"
                 HorizontalAlignment="Left"
